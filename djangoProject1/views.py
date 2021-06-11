@@ -9,13 +9,13 @@ def home(request):
     return render(request, "home.html")
 
 def predict1(request):
-    classifier = joblib.load('Sayoojkrorth/django_webapp/djangoProject1/svmClassifier.pkl')
+    classifier = joblib.load('C:/Users/sayoo/PycharmProjects/djangoProject1/djangoProject1/svmClassifier.pkl')
     tweet = request.GET['tweets']
     res = pred(tweet, classifier)
     return render(request, "predict1.html", {"results":res})
 
 def predict2(request):
-    classifier = joblib.load('Sayoojkrorth/django_webapp/djangoProject1/svmClassifier.pkl')
+    classifier = joblib.load('C:/Users/sayoo/PycharmProjects/djangoProject1/djangoProject1/svmClassifier.pkl')
     user = request.GET['username']
     count = 100
     pcount = 0
