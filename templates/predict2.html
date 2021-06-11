@@ -3,13 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <title>Realtime check</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+
+        .head{
+            text-align: center;
+            font-family: 'Poppins';
+            font-size: 35px;
+            margin-top: 70px
+        }
+        .subhead1{
+            text-align: center;
+            font-family: 'Poppins';
+            font-size: 25px;
+            margin-top: 50px
+        }
+        .container1{
+            margin-left: 200px;
+            width: 500px;
+            height: 150px;
+            border: 2px solid #133ede;
+            border-radius: 10px;
+            font-weight: bold;
+            font-family: 'Poppins';
+            font-size: 20px;
+            margin-top: 60px
+        }
+        .c1{
+            text-align: center;
+            letter-spacing: 1px;
+            background: -webkit-linear-gradient(#09af00, #056a00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .c2{
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: -5px;
+            background: -webkit-linear-gradient(#e30b27, #cb0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .topsub1{
+            width: 500.7px;
+            height: 33px;
+            margin-top: -1.15rem;
+            margin-left: -0.5px;
+            background-image: linear-gradient(to bottom right, #279ef6, #0066bb);
+            border-radius: 8px 8px 0px 0px;
+        }
+        .topsubtext1{
+            text-align: center;
+            color: white;
+            letter-spacing: 1px;
+            padding-top: 1.4px;
+            font-family: 'poppins';
+            font-size: 18px;
+        }
+        .container2{
+            width: 500px;
+            height: 150px;
+            border: 2px solid #133ede;
+            border-radius: 10px;
+            font-weight: bold;
+            font-family: 'Poppins';
+            font-size: 20px;
+            margin-top: -154px;
+            margin-left: 50rem;
+        }
+         .c3{
+            text-align: center;
+            letter-spacing: 1px;
+            background: -webkit-linear-gradient(#09af00, #056a00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .c4{
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: -5px;
+            background: -webkit-linear-gradient(#e30b27, #cb0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .result{
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 4rem;
+            font-weight: bold;
+            font-family: 'Poppins';
+            font-size: 25px;
+        }
+         .scrolltext{
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 4rem;
+            font-weight: bold;
+            font-family: 'Poppins';
+            font-size: 20px;
+        }
+         h3{
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+            font-weight: bold;
+            font-family: 'Poppins';
+            font-size: 20px;
+             padding-top: 2rem;
+        }
+         .c6{
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+             margin-bottom: 2rem;
+            font-weight: bold;
+            font-family: 'Poppins';
+            font-size: 14px;
+             padding-bottom: 2rem;
+        }
+          .c7{
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+            font-weight: bold;
+            font-family: 'Poppins';
+            font-size: 14px;
+              padding-bottom: 2rem;
+        }
+          .outline1{
+              background-image: linear-gradient(to bottom right, #ccffdf, #afffc9);
+              margin-top: 100px;
+              margin-left: 40px;
+              margin-right: 40px;
+              border-radius: 30px;
+          }
+           .outline2{
+              background-image: linear-gradient(to bottom right, #fceaea, #fdd6d6);
+              margin-top: 20px;
+              margin-left: 40px;
+              margin-right: 40px;
+              border-radius: 20px;
+          }
+           img{
+               margin-left: 48%;
+               margin-top: 10px;
+               width:50px ;
+               height: 30px;
+           }
+    </style>
 </head>
+
 <body>
-    <p>Welcome to second prediction homepage!</p>
-{{ result }}<br>
-{{ ress }} <br>
-{{ pp }}% <br>
-{{ np }}%<br>
-{{ analysis }}
+    <div>
+       <h1 class="head">Welcome to the prediction page</h1>
+       <p class="subhead1">Realtime check successful! The results can be viewed below.</p>
+    </div>
+
+    <div class="container1">
+        <div class="topsub1">
+            <p class="topsubtext1">COUNT</p>
+        </div>
+        <p class="c1">Number of Positive Tweets : {{ pos_count }}</p>
+        <p class="c2">Number of Negative Tweets : {{ neg_count }}</p>
+    </div>
+
+    <div class="container2">
+        <div class="topsub1">
+            <p class="topsubtext1">PERCENTAGE</p>
+        </div>
+        <p class="c3">Positive Tweets Percentage : {{ pos_per }}%<br>
+        <p class="c4">Negative Tweets Percentage : {{ neg_per }}%<br>
+    </div>
+
+    <div class="result">
+        <p class="c5">RESULT :{{ result }}</p>
+    </div>
+
+
+
+    <p class="scrolltext">Scroll down to see full details about the prediction.</p>
+    <img src='https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg'>
+
+    <div class="outline1">
+    <div class="pos_list">
+        <h3>List of Positive Tweets</h3>
+        <p class="c6">{{ pos_tweets|safe|escape }}</p>
+    </div>
+    </div>
+
+    <div class="outline2">
+    <div class="neg_list">
+        <h3>List of Negative Tweets</h3>
+        <p class="c7">{{ neg_tweets|safe|escape }}</p>
+    </div>
+    </div>
+
 </body>
 </html>

@@ -2,12 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Manual</title>
+     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
-<body>
-    <p>welcome to prediction page</p>
-{{ results }}
-<a href="http://127.0.0.1:8000/">link text</a>
 
+<style>
+    .head{
+        text-align: center;
+        font-family: 'Poppins';
+        font-size: 35px;
+        margin-top: 120px
+        }
+    .subhead{
+        text-align: center;
+        font-family: 'Poppins';
+        font-size: 25px;
+        margin-top: 50px
+        }
+    .result{
+        text-align: center;
+        font-family: 'Poppins';
+        font-size: 28px;
+        font-weight: bold;
+        color: #088ae7;
+        padding-bottom: 8rem;
+    }
+    .container1{
+        background-image: linear-gradient(to bottom right, #f7f8ff, #dbeffd);
+        margin-left:4rem ;
+        margin-right: 4rem;
+        margin-top: 5rem;
+        padding-top: 5px;
+        border-radius: 30px;
+    }
+</style>
+
+<body>
+    <div class="container1">
+    <div>
+       <p class="head">Welcome to the prediction page</p>
+       <p class="subhead">The results can be seen below</p>
+    </div>
+    <p class="result">The Tweet that you have entered is {{ results }} in nature </p>
+    </div>
 </body>
 </html>

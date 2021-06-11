@@ -1,22 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>webapp</title>
+    <title>CYBERBULLY DETECTOR</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <style>
+        .heading{
+             text-align: center;
+            font-family: 'Poppins';
+            font-size: 35px;
+            margin-top: 50px;
+            font-weight: bolder;
+            background: -webkit-linear-gradient(#00c403, #037114);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.3px;
+        }
+        .container1{
+            border: 3px solid blue;
+            border-radius: 20px;
+            margin-top: 3rem;
+            margin-left: 3rem;
+            margin-right: 3rem;
+        }
+        .container2{
+            border: 3px solid blue;
+            margin-top: 3rem;
+            margin-left: 3rem;
+            margin-right: 3rem;
+            border-radius: 20px;
+
+        }
+        .topbanner1{
+            border-radius: 18px 18px 0px 0px;
+            margin-top: -20px;
+            margin-left: -1px;
+            width: 88.7rem;
+            height: 45px;
+            background-image: linear-gradient(to bottom right, #27aaff, #0050d4);
+        }
+        .topbanner2{
+            border-radius: 17px 17px 0px 0px;
+            margin-top: -20px;
+            margin-left: -1px;
+            width: 88.7rem;
+            height: 45px;
+            background-image: linear-gradient(to bottom right, #27aaff, #0050d4);
+
+        }
+        .topbannertext{
+            font-family: 'poppins';
+            font-size: 19px;
+            color: white;
+            text-align: center;
+            letter-spacing: .2px;
+            padding-top: 7px;
+        }
+        .formline1{
+            padding-top: 50px;
+            padding-bottom: 70px;
+            text-align: center;
+            font-family: 'poppins';
+            font-size: 18px;
+        }
+        .formline2{
+            padding-top: 60px;
+            padding-bottom: 70px;
+            font-family: 'poppins';
+            font-size: 18px;
+            text-align: center;
+        }
+        .textbox{
+            width: 40rem;
+            height: 2rem;
+            border-radius: 30px;
+            font-family: 'poppins';
+            font-size: 17px;
+            padding-left: 2rem;
+            border: 3px solid #0152f6;
+            outline: none;
+        }
+        .textbox1{
+            width: 20rem;
+            height: 2rem;
+            height: 2rem;
+            font-family: 'poppins';
+            font-size: 17px;
+            border-radius: 30px;
+            padding-left: 2rem;
+            border: 3px solid #0152f6;
+            outline: none;
+        }
+        .textbox2{
+            width: 10rem;
+            height: 2rem;
+            font-family: 'poppins';
+            font-size: 17px;
+            border-radius: 30px;
+            padding-left: 2rem;
+            border: 3px solid #0152f6;
+            outline: none;
+        }
+        .button{
+            width: 10rem;
+            height: 2.1rem;
+            border-radius: 30px;
+            border: none;
+            font-size: 19px;
+            color: white;
+            position: relative;
+            top: 3px;
+            left: 15px;
+            background-image: linear-gradient(to bottom right, #27aaff, #0050d4);
+
+        }
+        button::onhover{
+            background-color: red;
+            transition: all .5s ease;
+        }
+    </style>
 </head>
 <body>
-<h1>CYBERBULLY DETECTOR</h1>
 
-<form action="predict1">
-enter tweet : <input type="text" name ="tweets">
-<input type="submit">
+<h1 class="heading">CYBERBULLY DETECTOR</h1>
+
+<div class="container1">
+    <div class="topbanner1">
+        <p class="topbannertext">Manual checking : Enter your Tweets below to check it's nature.</p>
+    </div>
+    <div class="formline1">
+    <form action="predict1" autocomplete="off">
+    Enter the tweet that you want to check : <input class="textbox" type="text" name ="tweets">
+    <input class="button" type="submit">
+    </form>
+    </div>
+</div>
+
+<div class="container2">
+     <div class="topbanner2">
+        <p class="topbannertext">Realtime checking based on Twitter : Enter username of whom you want to check and the number of tweets to check.</p>
+    </div>
+    <div class="formline2">
+    <form action="predict2" autocomplete="off">
+    Enter the username : <input class="textbox1" type="text" name="username">
+    &emsp;&emsp;Enter the number of tweets : <input class="textbox2" type="number" name="tweet_count">
+    <input class="button" type="submit">
+    </div>
 </form>
-
-<br>
-
-<form action="predict2">
-enter username : <input type="text" name="username">
-<input type="submit">
-</form>
+</div>
 
 </body>
 </html>

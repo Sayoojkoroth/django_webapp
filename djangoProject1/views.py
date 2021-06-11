@@ -17,7 +17,7 @@ def predict1(request):
 def predict2(request):
     classifier = joblib.load('C:/Users/sayoo/PycharmProjects/djangoProject1/djangoProject1/svmClassifier.pkl')
     user = request.GET['username']
-    count = 100
+    count = int(request.GET['tweet_count'])
     pcount = 0
     ncount = 0
 
@@ -30,26 +30,32 @@ def predict2(request):
     auth.set_access_token(access_token, access_token_secret)
     client = tweepy.API(auth, wait_on_rate_limit=True)
 
-    for status in tweepy.Cursor(client.user_timeline, id=user).items(count):
-        print(status.text)
-        print(pred(status.text, classifier))
+    p_tweets = []
+    n_tweets = []
 
+    for status in tweepy.Cursor(client.user_timeline, id=user).items(count):
         if ((pred(status.text, classifier)) == 'Positive'):
             pcount = pcount + 1
+            p_tweets.append(status.text + '<br>')
 
         if ((pred(status.text, classifier)) == 'Negative'):
             ncount = ncount + 1
+            n_tweets.append(status.text + '<br>')
 
-        pos_per = 100 * pcount / count
-        neg_per = 100 * ncount / count
+        twt_count = pcount + ncount
+        pos_per = round(100 * pcount / twt_count)
+        neg_per = round(100 * ncount / twt_count)
 
         if (pcount > ncount):
-            analysis = user,'is positive minded'
+            result = " ".join(["The profile of user", user,  " shows Non-Bullying Characteristics(positive minded)"])
         else:
-            analysis = user,"is negative minded"
+            result = " ".join(["The profile of user", user,  " shows Bullying Characteristics(positive nature)"])
 
-    return render(request, "predict2.html", {'result' : ncount,'ress':pcount, 'pp':pos_per, 'np':neg_per, 'analysis':analysis})
-
+    seperator =" "
+    pos_tweets = seperator.join(p_tweets)
+    neg_tweets = seperator.join(n_tweets)
+    return render(request, "predict2.html", {'pos_count':pcount, 'neg_count':ncount, 'pos_per':pos_per, 'neg_per':neg_per,
+                                             'result':result, 'pos_tweets':pos_tweets, 'neg_tweets':neg_tweets})
 
 
 
